@@ -1,10 +1,7 @@
 # Millennium Ruby
 
-Essa gem foi feita para de facilitar a integração com ERP Millennium ECO
+Essa gem foi criada para de facilitar a integração com ERP Millennium ECO
 API 2.0.
-
-No momento esta gem não cobre 100% dos enpoints disponibilizados
-pela Millennium. 
 
 ## Como usar
 
@@ -15,16 +12,19 @@ gem install millennium
 ```
 
 Insira as configurações básicas para você poder utilizar os recursos
-da API   
+da API.
+
+> É necessário ter as informações de acesso para previamente
+> poder acessar a API.
 
 ```ruby
 require 'millennium'
 
 Millennium.configure do |config|
-  config.user = <%= ENV["MILLENNIUM_USER"] %>
-  config.pass = <%= ENV["MILLENNIUM_PASS"] %>
-  config.host = <%= ENV["MILLENNIUM_HOST"] %>
-  config.port = <%= ENV["MILLENNIUM_PORT"] %>
+  config.user = <%= ENV['MILLENNIUM_USER'] %>
+  config.pass = <%= ENV['MILLENNIUM_PASS'] %>
+  config.host = <%= ENV['MILLENNIUM_HOST'] %>
+  config.port = <%= ENV['MILLENNIUM_PORT'] %>
 end
 ```
 
