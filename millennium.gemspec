@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.platform     = Gem::Platform::RUBY
   spec.authors      = ['Paulo Henrique Bruce']
   spec.email        = ['brucepaulohenrique@gmail.com']
-  spec.homepage     = 'https://github.com/ditointernet/millennium'
+  spec.homepage     = 'https://github.com/phbruce/millennium'
   spec.summary      = 'Ruby interface for the Millennium Eco API'
   spec.description  = 'This gem is prepared to integrate with Millennium'
 
