@@ -14,7 +14,7 @@ gem install millennium
 Insira as configurações básicas para você poder utilizar os recursos
 da API.
 
-> É necessário ter as informações de acesso para previamente
+> É necessário ter as informações de acesso previamente para
 > poder acessar a API.
 
 ```ruby
