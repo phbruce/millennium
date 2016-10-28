@@ -49,10 +49,8 @@ end
 | data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data inicial do período desejado   |
 | data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data final do período desejado   |
 
-**Exemplo:**
-
 ```ruby
-clientes = Millennium::PedidoVenda.lista_faturamentos({
+Millennium::PedidoVenda.lista_faturamentos({
   data_atualizacao_inicial: '2016-01-01-00-00-00',
   data_atualizacao_final: '2016-10-26-23-59-59',
 })
