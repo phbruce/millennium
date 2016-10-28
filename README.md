@@ -1,9 +1,19 @@
 # Millennium Ruby
 
-Essa gem foi criada para de facilitar a integração com ERP Millennium ECO
-API 2.0.
+Esta gem (não oficial) é uma interface para de facilitar a integração com ERP Millennium ECO API 2.0.
+
+## Documentação
+
+Você encontra a documentação da Millennium está nesse [link](http://millennium.iwise.com.br:888/api/millenium_eco/$help). Os dados de acesso são:
+
+```
+Login: OData
+Senha: 0d@t@123
+```
 
 ## Como usar
+
+> Essa gem foi 100% baseada nos dados disponibilizados pela documentação da Millennium. As únicas coisas que foram alteradas da documentação original foram os padrões de nomenclatura das classes e métodos para o modelo mais adequado para Ruby, porém, foi mantido todos os nomes de classes e métodos em português assim como os dados contidos na documentação da Millennium.
 
 Instale a gem:
 
@@ -11,55 +21,39 @@ Instale a gem:
 gem install millennium
 ```
 
-Insira as configurações básicas para você poder utilizar os recursos
-da API.
-
-> É necessário ter as informações de acesso previamente para
-> poder acessar a API.
+Agora insira as configurações básicas para você poder utilizar os recursos da API (utilizaremos os dados de exemplo da própria Millennium):
 
 ```ruby
 require 'millennium'
 
 Millennium.configure do |config|
-  config.user = <%= ENV['MILLENNIUM_USER'] %>
-  config.pass = <%= ENV['MILLENNIUM_PASS'] %>
-  config.host = <%= ENV['MILLENNIUM_HOST'] %>
-  config.port = <%= ENV['MILLENNIUM_PORT'] %>
+  config.user = 'OData'
+  config.pass = '0d@t@123'
+  config.host = 'millennium.iwise.com.br'
+  config.port = 888
 end
 ```
 
-### Exemplo: Como obter informações de compras faturadas
+### Buscando uma compra faturada
 
 **Parâmetros**
 
-| Parâmetro                | Obrigatório | Tipo                               | Default | Descrição |
-| ------------------------ | :---------: | :--------------------------------: | :-----: | :-------: |
-| data_atualizacao         | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
-| vitrine                  | Não         | Integer                            | -       | -         |
-| saida_inicial            | Não         | Integer                            | -       | -         |
-| trans_id                 | Não         | Integer                            | -       | -         |
-| aprovado                 | Não         | Boolean                            | -       | -         |
-| cancelada                | Não         | Boolean                            | -       | -         |
-| data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
-| data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
+| Parâmetro                | Obrigatório | Tipo                               | Descrição                          |
+| ------------------------ | :---------: | :--------------------------------: | ---------------------------------- |
+| data_atualizacao         | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data de atualização                |
+| vitrine                  | Não         | Integer                            | Id da vitrine                      |
+| saida_inicial            | Não         | Integer                            | Id da saida ou entrada que será usado como ponto de partida |
+| trans_id                 | Não         | Integer                            | Trans_id para a listagem das notas fiscais, as notas fiscais serão listadas a partir desse trans_id. Trans_id é um campo numérico que indica quando um item foi alterado |
+| aprovado                 | Não         | Boolean                            | Listar somente notas aprovadas     |
+| cancelada                | Não         | Boolean                            | Listar somente as notas canceladas |
+| data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data inicial do período desejado   |
+| data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data final do período desejado   |
 
+**Exemplo:**
 
 ```ruby
-lista_faturamentos = Millennium::PedidoVenda.lista_faturamentos({
-  data_atualizacao_inicial: '2016-10-26-17-24-50',
-  data_atualizacao_final: '2016-10-26-17-24-50',
-  data_atualizacao: '2016-10-26-17-24-50',
-  saida_inicial: 55,
-  cancelada: false,
-  aprovado: false,
-  trans_id: 66,
-  vitrine: 82
+clientes = Millennium::PedidoVenda.lista_faturamentos({
+  data_atualizacao_inicial: '2016-01-01-00-00-00',
+  data_atualizacao_final: '2016-10-26-23-59-59',
 })
-
-lista_faturamentos.status
-=> "OK"
-
-lista_faturamentos.body
-=> "{\"odata.metadata\":\"http:\\/\\/millennium.iwise.com.br:888\\/api\\/millenium_eco\\/$metadata#millenium_eco.MILLENIUM_ECO_PEDIDO_VENDA_LISTAFATURAMENTOS\"
-,\"odata.count\":0,\"value\":[]}"
 ```
