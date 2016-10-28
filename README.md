@@ -36,19 +36,6 @@ end
 
 ### Buscando uma compra faturada
 
-**Parâmetros**
-
-| Parâmetro                | Obrigatório | Tipo                               | Descrição                          |
-| ------------------------ | :---------: | :--------------------------------: | ---------------------------------- |
-| data_atualizacao         | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data de atualização                |
-| vitrine                  | Não         | Integer                            | Id da vitrine                      |
-| saida_inicial            | Não         | Integer                            | Id da saida ou entrada que será usado como ponto de partida |
-| trans_id                 | Não         | Integer                            | Trans_id para a listagem das notas fiscais, as notas fiscais serão listadas a partir desse trans_id. Trans_id é um campo numérico que indica quando um item foi alterado |
-| aprovado                 | Não         | Boolean                            | Listar somente notas aprovadas     |
-| cancelada                | Não         | Boolean                            | Listar somente as notas canceladas |
-| data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data inicial do período desejado   |
-| data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | Data final do período desejado   |
-
 ```ruby
 Millennium::PedidoVenda.lista_faturamentos({
   data_atualizacao_inicial: '2016-01-01-00-00-00',
