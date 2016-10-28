@@ -25,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('rspec', '~> 3.0')
 
   spec.files        = Dir['README.md', 'Gemfile', 'lib/**/*']
-  spec.test_files   = `git ls-files -- spec/*`.split('\n')
+  spec.test_files   = `git ls-files -- spec/*`.split("\n")
   spec.require_path = 'lib'
 end
