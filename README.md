@@ -32,16 +32,16 @@ end
 
 **Parâmetros**
 
-| Parâmetro                | Obrigatório | Tipo                               | Default | Descrição                        |
-| ------------------------ | :---------: | :--------------------------------: | :-----: | -------------------------------- |
-| data_atualizacao         | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | Data inicial do período desejado |
-| vitrine                  | Não         | Integer                            | -       | Data final do período desejado   |
-| saida_inicial            | Não         | Integer                            | -       | Data final do período desejado   |
-| trans_id                 | Não         | Integer                            | -       | Data final do período desejado   |
-| aprovado                 | Não         | Boolean                            | -       | Data final do período desejado   |
-| cancelada                | Não         | Boolean                            | -       | Data final do período desejado   |
-| data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | Data final do período desejado   |
-| data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | Data final do período desejado   |
+| Parâmetro                | Obrigatório | Tipo                               | Default | Descrição |
+| ------------------------ | :---------: | :--------------------------------: | :-----: | :-------: |
+| data_atualizacao         | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
+| vitrine                  | Não         | Integer                            | -       | -         |
+| saida_inicial            | Não         | Integer                            | -       | -         |
+| trans_id                 | Não         | Integer                            | -       | -         |
+| aprovado                 | Não         | Boolean                            | -       | -         |
+| cancelada                | Não         | Boolean                            | -       | -         |
+| data_atualizacao_inicial | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
+| data_atualizacao_final   | Não         | String (formato: YYYY-mm-dd-H-M-S) | -       | -         |
 
 
 ```ruby
