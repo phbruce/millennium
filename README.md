@@ -13,8 +13,6 @@ Senha: 0d@t@123
 
 ## Como usar
 
-> Essa gem foi 100% baseada nos dados disponibilizados pela documentação da Millennium. As únicas coisas que foram alteradas da documentação original foram os padrões de nomenclatura das classes e métodos para o modelo mais adequado para Ruby, porém, foi mantido todos os nomes de classes e métodos em português assim como os dados contidos na documentação da Millennium.
-
 Instale a gem:
 
 ```bash
@@ -37,8 +35,8 @@ end
 ### Buscando uma compra faturada
 
 ```ruby
-Millennium::PedidoVenda.lista_faturamentos({
+Millennium::PedidoVenda.new('ListaFaturamento', {
   data_atualizacao_inicial: '2016-01-01-00-00-00',
   data_atualizacao_final: '2016-10-26-23-59-59',
-})
+}).run
 ```
