@@ -35,7 +35,7 @@ end
 ### Buscando uma compra faturada
 
 ```ruby
-Millennium::PedidoVenda.new('ListaFaturamento', {
+Millennium::Request.new('Pedido_Venda', 'ListaFaturamentos', {
   data_atualizacao_inicial: '2016-01-01-00-00-00',
   data_atualizacao_final: '2016-10-26-23-59-59',
 }).run
