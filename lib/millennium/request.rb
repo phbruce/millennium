@@ -2,27 +2,26 @@
 module Millennium
   # lib/millennium/request.rb
   class Request
-    HOSTNAME = Millennium::Config.host || 'millennium.iwise.com.br'
-    PORT = Millennium::Config.port     || '888'
-
-    private_constant :HOSTNAME
-    private_constant :PORT
-
     def initialize(object, endpoint, params)
-      @full_endpoint = Millennium::Helpers.full_endpoint(
-        object, endpoint, params
-      )
+      @object = object
+      @endpoint = endpoint
+      @params = params
     end
 
     def run
       options = Millennium::Config.options
-      Typhoeus::Request.new(url, options).run
+      format = {}
+      format['$format'] = 'json'
+      params = @params.merge(format)
+      Typhoeus::Request.new(url, options.merge(params: params)).run
     end
 
     private
 
     def url
-      "http://#{HOSTNAME}:#{PORT}/api/millenium_eco/#{@full_endpoint}"
+      hostname = Millennium::Config.host
+      port = Millennium::Config.port
+      "http://#{hostname}:#{port}/api/millenium_eco/#{@object}/#{@endpoint}"
     end
   end
 end
