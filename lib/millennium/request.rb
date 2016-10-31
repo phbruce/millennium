@@ -2,37 +2,33 @@
 module Millennium
   # lib/millennium/request.rb
   class Request
-    class << self
-      def run(endpoint)
-        url = mount_url(endpoint)
-        make_request(url)
-      end
+    HOSTNAME = Millennium::Config.host || 'millennium.iwise.com.br'
+    PORT = Millennium::Config.port     || '888'
 
-      private
+    OPTIONS = {
+      userpwd: "#{Millennium::Config.user}:#{Millennium::Config.pass}",
+      httpauth: :ntlm,
+      verbose: true
+    }.freeze
 
-      def make_request(url)
-        Typhoeus::Request.new(url, options).run
-      end
+    private_constant :HOSTNAME
+    private_constant :PORT
+    private_constant :OPTIONS
 
-      def mount_url(endpoint)
-        hostname = Millennium::Config.host || 'millennium.iwise.com.br'
-        port = Millennium::Config.port     || '888'
+    def initialize(object, endpoint, params)
+      @full_endpoint = Millennium::Helpers.full_endpoint(
+        object, endpoint, params
+      )
+    end
 
-        "http://#{hostname}:#{port}/api/millenium_eco/#{endpoint}"
-      end
+    def run
+      Typhoeus::Request.new(url, OPTIONS).run
+    end
 
-      def options
-        {
-          userpwd: userpwd,
-          httpauth: :ntlm,
-          verbose: true
-        }
-      end
+    private
 
-      def userpwd
-        config = Millennium::Config
-        "#{config.user}:#{config.pass}"
-      end
+    def url
+      "http://#{HOSTNAME}:#{PORT}/api/millenium_eco/#{@full_endpoint}"
     end
   end
 end

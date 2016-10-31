@@ -7,5 +7,11 @@ module Millennium
         query << "#{key}=#{value}&"
       end
     end
+
+    def self.full_endpoint(object, endpoint, params)
+      return "#{object}/#{endpoint}?$format=json" if params.empty?
+      query = mount_query(params)
+      "#{object}/#{endpoint}?#{query}$format=json"
+    end
   end
 end
