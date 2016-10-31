@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Millennium
   # lib/millennium/transportadoras/transportadoras.rb
-  class PedidoVenda
+  class Transportadoras
     def initialize(endpoint, params)
       @object   = 'Transportadoras'
       @endpoint = endpoint
