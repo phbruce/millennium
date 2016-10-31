@@ -1,4 +1,4 @@
-# Millennium Ruby
+# Millennium Ruby [![Code Climate](https://codeclimate.com/github/phbruce/millennium/badges/gpa.svg)](https://codeclimate.com/github/phbruce/millennium) [![Gem Version](https://img.shields.io/gem/v/millennium.svg)](https://rubygems.org/gems/millennium)
 
 Esta gem (não oficial) é uma interface para de facilitar a integração com ERP Millennium ECO API 2.0.
 
