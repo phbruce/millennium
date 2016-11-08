@@ -4,7 +4,7 @@ Esta gem (não oficial) é uma interface para de facilitar a integração com ER
 
 ## Documentação
 
-Você encontra a documentação da Millennium está nesse [link](http://millennium.iwise.com.br:888/api/millenium_eco/$help). Os dados de acesso são:
+Você encontra a documentação da Millennium está neste [link](http://millennium.iwise.com.br:888/api/millenium_eco/$help). Os dados de acesso são:
 
 ```
 Login: OData
